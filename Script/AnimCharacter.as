@@ -2,13 +2,13 @@ class AAnimCharacter : ACharacter
 {
 
     UPROPERTY(DefaultComponent)
-    UInputComponent InputComp;
+    protected UInputComponent InputComp;
 
     UPROPERTY(DefaultComponent)
-    USpringArmComponent SpringArmComp;
+    protected USpringArmComponent SpringArmComp;
 
     UPROPERTY(DefaultComponent, Attach = SpringArmComp)
-    UCameraComponent PlayerCamera;
+    protected UCameraComponent PlayerCamera;
 
     UFUNCTION(BlueprintOverride)
     void BeginPlay()
