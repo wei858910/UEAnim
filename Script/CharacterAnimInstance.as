@@ -2,8 +2,11 @@ class UCharacterAnimInstance : UAnimInstance
 {
     AAnimCharacter Owner;
 
-    UPROPERTY(BlueprintReadOnly)
-    bool bMoveing = false;
+    UPROPERTY()
+    bool bMoving = false;
+
+    UPROPERTY()
+    float OwnerSpeed = 0.;
 
     UFUNCTION(BlueprintOverride)
     void BlueprintInitializeAnimation()
@@ -16,7 +19,9 @@ class UCharacterAnimInstance : UAnimInstance
     {
         if (IsValid(Owner))
         {
-            bMoveing = Owner.GetVelocity().Size() > 0.;
+            bMoving = Owner.GetVelocity().Size() > 0.;
+            OwnerSpeed = Owner.GetVelocity().Size2D();
+            Print(f"{OwnerSpeed}");
         }
     }
 };
